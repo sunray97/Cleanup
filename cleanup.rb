@@ -1,12 +1,7 @@
-class Cleanup
-	def who
-		work=["Work1","Work2","Work3"] 
-		i=[0,1,2]
-		n=i.sample(3)
-		puts 'person1:'+work[n[0]]
-		puts 'person2:'+work[n[1]]
-		puts 'person3:'+work[n[2]]
+class Range
+	def method_missing(meth, *args, &block)
+		self.map {|item| "#{meth.to_s.capitalize}#{item}"}
 	end
-p=Cleanup.new
-p.who
 end
+
+(1..3).person.zip((1..3).worker.shuffle).each {|item| puts "#{item[0]} :#{item[1]}"}
